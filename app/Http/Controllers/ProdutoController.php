@@ -42,4 +42,20 @@ class ProdutoController extends Controller
         ]);
     }
 
+    public function editar(Produto $prod) {
+        return view('produtos/editar', ['prod' => $prod]);
+       }
+
+       public function editarGravar(Request $form, Produto $prod) {
+        $dados = $form->validate([
+        'nome' => 'required|max:255',
+        'preco' => 'required',
+        'descricao' => 'required'
+        ]);
+        
+        $prod->fill($dados);
+        $prod->save();
+        return redirect()->route('produto');
+        }
+
 }

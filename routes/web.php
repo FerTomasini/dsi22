@@ -25,3 +25,7 @@ Route::get('/produto/criar', [ProdutoController::class, 'criar']) ->name('produt
 Route::get('/produto/ver/{prod}', [ProdutoController::class, 'ver']) ->name('produto.ver');
 
 Route::post('/produto/criar', [ProdutoController::class, 'inserir']) ->name('produto.inserir');
+
+Route::get('/produto/editar/{prod}', [ProdutoController::class, 'editar'])->name('produto/editar');
+
+Route::put('/produto/editar/{prod}', [ProdutoController::class, 'editarGravar']);
