@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,9 @@ Route::post('/produto/criar', [ProdutoController::class, 'inserir']) ->name('pro
 Route::get('/produto/editar/{prod}', [ProdutoController::class, 'editar'])->name('produto/editar');
 
 Route::put('/produto/editar/{prod}', [ProdutoController::class, 'editarGravar']);
+
+Route::get('/login', [UsuariosController::class, 'index'])->name ('usuario.index');
+
+Route::post('/login', [UsuariosController::class, 'login'])->name('usuario.login');
+
+Route::get('/logout', [UsuariosController::class, 'logout'])->name('usuario.logout');
